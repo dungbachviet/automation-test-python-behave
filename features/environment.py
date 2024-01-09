@@ -6,10 +6,7 @@ from selenium import webdriver
 @fixture(name="fixture.browser.firefox")
 def browser_firefox(context, *args, **kwargs):
     # -- SETUP-FIXTURE PART:
-    context.browser = webdriver.Remote(
-        command_executor="http://127.0.0.1:4444/wd/hub",
-        options=webdriver.FirefoxOptions(),
-    )
+    context.browser = webdriver.Firefox()
     yield context.browser
     # -- CLEANUP-FIXTURE PART:
     context.browser.quit()
